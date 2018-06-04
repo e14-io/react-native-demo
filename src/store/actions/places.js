@@ -16,7 +16,7 @@ export const addPlace = (placeName, location, image) => {
 			.catch(() => alert("No valid token found"))
 			.then((token) => {
 				authToken = token;
-				return fetch("https://us-central1-rugged-filament-204300.cloudfunctions.net/storeImage", {
+				return fetch("https://us-central1-react-native-places-fd867.cloudfunctions.net/storeImage", {
 					method: "POST",
 					body: JSON.stringify({
 						image: image.base64,
@@ -45,7 +45,7 @@ export const addPlace = (placeName, location, image) => {
 					image: parsedRes.imageUrl,
 					imagePath: parsedRes.imagePath,
 				};
-				return fetch("https://rugged-filament-204300.firebaseio.com/places.json?auth=" + authToken, {
+				return fetch("https://react-native-places-fd867.firebaseio.com/places.json?auth=" + authToken, {
 					method: "POST",
 					body: JSON.stringify(placeDate)
 				})
@@ -77,7 +77,7 @@ export const getPlaces = () => {
 		dispatch(authGetToken())
 			.catch(() => alert("No valid token found"))
 			.then((token) => {
-					return fetch("https://rugged-filament-204300.firebaseio.com/places.json?auth=" + token)
+					return fetch("https://react-native-places-fd867.firebaseio.com/places.json?auth=" + token)
 			})
 			.then(res => {
 				if (res.ok) {
@@ -119,7 +119,7 @@ export const deletePlace = (key) => {
 		dispatch(authGetToken())
 			.catch(() => alert("No valid token found"))
 			.then((token) => {
-				return fetch("https://rugged-filament-204300.firebaseio.com/places/" + key + ".json?auth=" + token, {
+				return fetch("https://react-native-places-fd867.firebaseio.com/places/" + key + ".json?auth=" + token, {
 					method: "DELETE"
 				})
 			})

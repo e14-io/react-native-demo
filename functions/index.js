@@ -5,7 +5,7 @@ const fs = require("fs");
 const UUID = require("uuid-v4");
 
 const gcconfig = {
-	projectId: "rugged-filament-204300",
+	projectId: "react-native-places-fd867",
 	keyFilename: "awesome-places.json"
 };
 
@@ -40,7 +40,7 @@ exports.storeImage = functions.https.onRequest((request, response) => {
 					console.log(err);
 					return response.status(500).json({ error: err });
 				});
-				const bucket = gcs.bucket("rugged-filament-204300.appspot.com");
+				const bucket = gcs.bucket("react-native-places-fd867.appspot.com");
 				const uuid = UUID();
 
 				return bucket.upload(
@@ -78,10 +78,9 @@ exports.storeImage = functions.https.onRequest((request, response) => {
 exports.deleteImage = functions.database
 	.ref("/places/{placeId}")
 	.onDelete(event => {
-	const placeData = event.val();
-	const imagePath = placeData.imagePath;
+		const placeData = event.val();
+		const imagePath = placeData.imagePath;
 
-	const bucket = gcs.bucket("rugged-filament-204300.appspot.com");
-	return bucket.file(imagePath).delete();
-});
-
+		const bucket = gcs.bucket("react-native-places-fd867.appspot.com");
+		return bucket.file(imagePath).delete();
+	});

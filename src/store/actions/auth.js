@@ -4,7 +4,7 @@ import { uiStartLoading, uiStopLoading } from "./index";
 import startMainTabs from "../../screens/MainTabs/startMainTabs";
 import {Navigation} from "react-native-navigation";
 
-const API_KEY = "AIzaSyAyG85TFG9jHbpIE-c6VI1jq2w-2fuLytc";
+const API_KEY = "AIzaSyDT-Fpw7Nqxv-0wknwCyXWo5Ot3OYUTAZ0";
 
 export const tryAuth = (authData, authMode) => {
 	return dispatch => {
