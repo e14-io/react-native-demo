@@ -64,3 +64,4 @@ Open Xcode, select the device, make sure to enter a developer team.
 
 NOTE: To be able to run on devices, both computer and device must share the same network.
 
+![imagen del repositorio](./src/assets/share-place.png "Share place")
